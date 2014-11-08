@@ -75,7 +75,7 @@
           </table>
         </div>
 		</div>
-	<div class="col-md-4">
+	<div class="col-md-6">
 		 <div class="panel panel-success">
                 <div class="panel-heading">
                   <h3 class="panel-title">HMAC Hash Function</h3>
