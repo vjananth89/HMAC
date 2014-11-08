@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HMAC Implementation</title>
+
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css"/>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/css/bootstrapvalidator.css"/>
+
+    <!-- Include the FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
+    <!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />-->
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+    
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+        <div class="page-header">
+            <h1>HMAC Implementation</h1>
+			<h5>A simple implementation for generating HMAC hash functions based on user inputs</h5>
+        </div>
+
+        <div class="col-lg-8 col-lg-offset-2">
+            <form id="defaultForm" method="post" class="form-horizontal" action="results.jsp">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Enter a secret key</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="secret_key" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Enter a Timestamp</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="timestamp"  />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Enter a Random Number</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="random_number" />
+                    </div>
+                </div>
+				
+				
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Enter a Message</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="message" />
+                    </div>
+                </div>
+				
+				 <div class="form-group">
+                    <label class="col-lg-3 control-label">Enter an ID for your message</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="message_id" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-9 col-lg-offset-3">
+                        <button type="submit" class="btn btn-primary">Generate HMAC</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#defaultForm').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            secret_key: {
+                message: 'The secret key is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The secret key must be specified'
+                    },
+					stringLength: {
+                        min: 4,
+                        max: 30,
+                        message: 'The secret key must be between 4 to 30 characters'
+                    },
+						 regexp: {
+                        regexp:/^[0-9]+$/,
+                        message: 'Only numbers accepted as secret key at this point'
+                    }
+                    }
+                },
+            
+            timestamp: {
+                message: 'Invalid timestamp',
+                validators: {
+                    notEmpty: {
+                        message: 'Timestamp field cannot be empty'
+                    },
+					  date: {
+                        format: 'YYYY/MM/DD',
+                        message: 'The timestamp is not valid'
+                    }
+				
+				
+         
+               
+                }
+            },
+              random_number: {
+                message: 'Invalid random number',
+                validators: {
+                    notEmpty: {
+                        message: 'The random number field is required and can\'t be empty'
+                    },
+					stringLength: {
+                        min: 4,
+                        max: 4,
+                        message: 'random number must be a 4 digit integer'
+                    }
+                
+                  
+                }
+            },
+			
+			message: {
+                message: 'The message is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The message field is required and can\'t be empty'
+                    },
+					stringLength: {
+                        min: 4,
+                        
+                        message: 'Only message of string length greater than 4 accepted'
+                    }
+				
+              
+                  
+                }
+            },
+			
+			message_id: {
+                message: 'The message id is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The message_id is required and can\'t be empty'
+                    },
+					stringLength: {
+                        min: 6,
+						max: 6,
+                        message: 'Message id must be a 6 digit integer'
+                    },
+					 regexp: {
+                        regexp:/^[0-9]+$/,
+                        message: 'Only numbers accepted as message id at this point'
+                    }
+                   
+                }
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>
