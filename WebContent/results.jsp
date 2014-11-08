@@ -78,10 +78,24 @@
 	<div class="col-md-4">
 		 <div class="panel panel-success">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Panel success</h3>
+                  <h3 class="panel-title">HMAC Hash Function</h3>
                 </div>
                 <div class="panel-body">
-                  Panel content
+                   <%
+        	String signature;
+    		
+    
+    			
+    	String a = request.getParameter("secret_key");
+    	String b = request.getParameter("timestamp");
+    	String c = request.getParameter("random_number");
+    	String d = request.getParameter("message");
+    	String e = request.getParameter("message_id");
+    	signature = hmac.simpleHmac(a,b,c,d,e);
+    	
+    			%>
+    		
+    	<td width="119"><% String signature1= signature.toString();%><%=signature1%></td>
                 </div>
               </div>
 			  </div>
