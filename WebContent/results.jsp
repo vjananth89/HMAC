@@ -37,28 +37,39 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Parameters</th>
+                <th>Input Given</th>
+               
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>Secret Key</td>
+                <td> <%=  request.getParameter("secret_key") %></td>
+                
               </tr>
               <tr>
                 <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <td>Timestamp</td>
+                <td> <%=   request.getParameter("timestamp") %></td>
+             
               </tr>
               <tr>
                 <td>3</td>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+                <td>Random Number</td>
+                 <td> <%=   request.getParameter("random_number") %></td>
+               
+              </tr>
+               <tr>
+                <td>4</td>
+                <td>Message</td>
+                 <td> <%=   request.getParameter("message") %></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Message Id</td>
+                 <td> <%=   request.getParameter("message_id") %></td>
               </tr>
             </tbody>
           </table>
