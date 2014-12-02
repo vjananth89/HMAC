@@ -104,7 +104,7 @@
 			  </div>
 			  </div>
 	 
-	
+	<p>&copy; &nbsp Written by Vijay Ananth in 2013</p>
 		  
          
 </body>
