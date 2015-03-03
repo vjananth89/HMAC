@@ -24,8 +24,8 @@
 <div class="container">
         <div class="row">
         <div class="page-header">
-            <h1>HMAC Implementation</h1>
-			<h5>A simple implementation for generating HMAC hash functions based on user inputs</h5>
+            <h1>Message Authentication Simulation</h1>
+			<h5>A simple implementation for generating HMAC functions in Computationally Constrained Environments based on user inputs</h5>
         </div>
 <body>
 <div class="jumbotron">
